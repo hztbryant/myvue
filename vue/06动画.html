@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/vue-2.4.0.js"></script>
+    <link rel="stylesheet" href="lib/animate.css">
+    <style>
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(200px)
+        }
+        
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .my-enter,
+        .my-leave-to {
+            opacity: 0;
+            transform: translateY(200px)
+        }
+        
+        .my-enter-active,
+        .my-leave-active {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .on-enter-active {
+            transition: .3s ease;
+        }
+        
+        .on-leave-active {
+            transition: .3s ease;
+        }
+        
+        .on-enter,
+        .on-leave-to {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <input type="button" value="切换" @click="flag=!flag">
+        <transition enter-active-class="bounceIn" leave-active-class="bounceOut" :duration="{enter:100,leave:10000}">
+            <h3 v-if=flag class="animated">黄志涛真他妈帅</h3>
+        </transition>
+        <hr>
+        <br> -->
+        <input type="button" value="切换1" @click="flag2=true">
+        <input type="button" value="切换" @click="flag2=false">
+        <transition name="my" mode="out-in">
+            <h3 v-if=flag2 key="but1">黄志涛真他妈帅1</h3>
+            <!-- 必须加入key值区分元素，因为vue的机制，为了节省性能，会把同标签的直接替换内容，不会重新渲染 -->
+            <h3 v-else=flag2 key="but2">黄志涛真他妈帅2</h3>
+        </transition>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                flag: false,
+                flag2: true
+            },
+            methods: {
+
+            }
+        })
+    </script>
+
+    <div id="test">
+        <transition name="on" mode="out-in">
+            <!--mode只适用于一个transition内的同标签切换-->
+            <button v-if="show" key="but1">on</button>
+            <button v-else key="but2">off</button>
+            <!--key为了防止只是修改内容不重新渲染-->
+        </transition>
+
+        <button style="margin-top: 100px;" @click="show=!show">切换</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#test',
+            data: {
+                show: true
+            }
+        })
+    </script>
+</body>
+
+
+</html>

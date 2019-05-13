@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <xi></xi>
+        <xi></xi>
+    </div>
+    <template id="ha">
+        <div>
+            <input type="button" value="+" @click="add">
+            <h3>{{con}}</h3>
+        </div>
+    </template>
+    <script>
+        var obj = {
+            con: 0
+        }
+        Vue.component("xi", {
+            template: "#ha",
+            data: function() {
+                return {
+                    con: 0
+                }
+            },
+            methods: {
+                add() {
+                    this.con++
+                }
+            }
+        })
+
+        const vm = new Vue({
+            el: "#app",
+            data: {},
+            methods: {
+                // add() {
+                //     con++
+                // }
+            },
+            directives: {},
+            filters: {},
+            components: {}
+        })
+    </script>
+</body>
+
+</html>

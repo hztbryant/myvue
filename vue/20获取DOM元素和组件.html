@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div class="app">
+        <input type="button" value="点击" @click="show">
+        <h3 ref="myh3">黄志涛真他妈帅</h3>
+        <login ref="mylogin"></login>
+    </div>
+
+    <script>
+        const login = {
+            template: "<h3>今天天气真好</h3>",
+            data() {
+                return {
+                    msg: "子组件的数据"
+                }
+            },
+            methods: {
+                ch() {
+                    console.log("子组件的方法");
+
+                }
+            }
+        }
+        const vm = new Vue({
+            el: ".app",
+            data: {},
+            methods: {
+                show() {
+                    console.log(this.$refs.myh3.innerText);
+                    console.log(this.$refs.mylogin.msg);
+                    this.$refs.mylogin.ch()
+
+                }
+            },
+            components: {
+                login
+            }
+        })
+    </script>
+</body>
+
+</html>o

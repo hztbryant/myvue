@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/vue-2.4.0.js"></script>
+    <style>
+    .color{
+        color:yellow;
+    }
+    .weight{
+        font-weight:400;
+    }
+    
+    </style>
+</head>
+<body>
+    <!-- 直接使用数组 -->
+    <!-- <h1 :class="['color','weight']">黄志涛真他妈帅</h1> -->
+    <!-- 使用三元表达式 -->
+    <!-- <h1 :class="['color', flag?'weight':'']">黄志涛真他妈帅</h1> -->
+    <!-- 数组中嵌套对象 -->
+    <h1 :class="['color', {weight:flag}]">黄志涛真他妈帅</h1>
+    <!-- 直接使用对象 -->
+    <!-- <h1 :class="{color:flag,weight:flag}">黄志涛真他妈帅</h1> -->
+    <script>
+        var vm=new Vue({
+            el:"h1",
+            data:{
+                flag:true
+            }
+        })
+    </script>
+</body>
+</html>

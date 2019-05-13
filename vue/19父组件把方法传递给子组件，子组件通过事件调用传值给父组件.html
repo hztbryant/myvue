@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div class="app">
+        <ch @fu="show"></ch>
+    </div>
+</body>
+<template id="ha">
+    <div>
+        <h3>这是子组件</h3>
+        <input type="button" value="点击一下出发父组件的方法，并向父组件传值" @click="my">
+    </div>
+</template>
+<script>
+    var ch = {
+        template: "#ha",
+        data() {
+            return {
+                haha: {
+                    id: 1,
+                    name: 'hzt'
+                }
+            }
+        },
+        methods: {
+            my() {
+                this.$emit("fu", this.haha)
+            }
+        },
+    }
+    var vm = new Vue({
+        el: ".app",
+        data: {
+            msg: null
+        },
+        methods: {
+            show(data) {
+                this.msg = data
+                console.log('调用了父组件的方法' + this.msg);
+
+            }
+        },
+        components: {
+            ch: ch
+        }
+    })
+</script>
+
+</html>

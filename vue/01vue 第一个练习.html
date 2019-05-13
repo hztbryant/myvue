@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/vue-2.4.0.js"></script>
+    <style>
+    [v-cloak]{
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <div class="div">
+        <p v-cloak>{{ msg }}1111</p>
+        <p v-text='msg2'>111</p>
+        <div v-html='msg3'>111</div>
+        <input type="button" value="按钮" :title="msg4+'111'" >
+    </div>
+   
+    <script>
+        var vm=new Vue({
+            el:".div",
+            data:{
+                msg:'Hello Word',
+                msg2:'hahha',
+                msg3:'<h1>黄志涛真他妈帅</h1>',
+                msg4:'hhahahahahhahhah'
+            },
+            methods:{
+                xi:function(){
+                    alert("嘻嘻嘻");
+                }
+            }
+        })
+    </script>
+</body>
+</html>

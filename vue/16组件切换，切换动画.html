@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/vue-2.4.0.js"></script>
+    <style>
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(150px);
+        }
+        
+        .v-enter-active,
+        .v-leave-to {
+            transition: all .3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="登陆" @click=" conn='login'">
+        <input type="button" value="注册" @click=" conn='register'">
+        <transition mode="out-in">
+            <component :is="conn"></component>
+        </transition>
+    </div>
+    <template id="lo">
+        <div>
+            <h3>登陆组件</h3>
+        </div>
+    </template>
+    <template id="re">
+        <div>
+            <h3>注册组件</h3>
+        </div>
+    </template>
+
+    <script>
+        Vue.component("login", {
+            template: "#lo"
+        })
+        Vue.component("register", {
+            template: "#re"
+        })
+
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                conn: 'login'
+            },
+            methods: {
+
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>

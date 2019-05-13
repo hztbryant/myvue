@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ha></ha>
+        <haa></haa>
+    </div>
+    <template id="xi">
+        <div>
+            <h3>黄志涛真他妈帅</h3>
+        </div>
+    </template>
+    <template id="xii">
+            <div>
+                <h3>黄志涛真他妈帅</h3>
+            </div>
+        </template>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+
+            },
+            methods: {
+
+            },
+            components: {
+                ha: {
+                    template: "#xi"
+                },
+                haa: {
+                    template: "#xii"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
